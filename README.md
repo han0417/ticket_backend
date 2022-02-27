@@ -1,5 +1,5 @@
 # Todo List Backend
-
+* 使用Redis List push & pop up 嘗試解決race condition & 避免票卷超賣問題
 ## Environment
 * Laravel 8.83.2
 * PHP 7.4.28

@@ -15,22 +15,17 @@ class TicketException extends BaseException
     private $errorConfig = [
         '20001' => [
             'type'    => ExceptionConstant::FAILURE,
-            'message' => '取得資料失敗，請重試',
+            'message' => '取票失敗，請重試',
             'sentry'  => false,
         ],
         '20002' => [
             'type'    => ExceptionConstant::FAILURE,
-            'message' => '新增失敗，請重試',
+            'message' => '票卷數量已不足',
             'sentry'  => false,
         ],
         '20003' => [
             'type'    => ExceptionConstant::FAILURE,
-            'message' => '更新失敗，請重試',
-            'sentry'  => false,
-        ],
-        '20004' => [
-            'type'    => ExceptionConstant::FAILURE,
-            'message' => '刪除失敗，請重試',
+            'message' => '請勿短時間傳送大量相同請求',
             'sentry'  => false,
         ]
     ];

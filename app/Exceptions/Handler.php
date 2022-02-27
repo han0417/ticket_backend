@@ -10,6 +10,7 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Log;
 
 class Handler extends ExceptionHandler
@@ -102,6 +103,14 @@ class Handler extends ExceptionHandler
                 'http_code'  => 405,
                 'error_code' => 405,
                 'message'    => 'Method Not Allowed'
+            ];
+        }
+
+        if ($e instanceof ThrottleRequestsException) {
+            $exceptionData = [
+                'http_code'  => 406,
+                'error_code' => 406,
+                'message'    => '請勿短時間傳送大量請求'
             ];
         }
 

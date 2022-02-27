@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\TicketService;
 use App\Http\Resources\BaseJsonResource;
-use App\Http\Resources\GetticketListCollection;
-use App\Http\Resources\GetticketResource;
 
 class TicketController extends Controller
 {

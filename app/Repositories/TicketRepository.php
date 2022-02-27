@@ -19,25 +19,25 @@ class TicketRepository
      * @return object
      *
      */
-    public function listByFilter(array $filter, array $relation = [])
-    {
-        $query = $this->model->query();
+    // public function listByFilter(array $filter, array $relation = [])
+    // {
+    //     $query = $this->model->query();
 
-        if (!empty($filter['id'])) {
-            $query->where('id', $filter['id']);
-        }
+    //     if (!empty($filter['id'])) {
+    //         $query->where('id', $filter['id']);
+    //     }
 
-        if (!empty($filter['user_id'])) {
-            $query->where('user_id', $filter['user_id']);
-        }
+    //     if (!empty($filter['user_id'])) {
+    //         $query->where('user_id', $filter['user_id']);
+    //     }
 
-        // 如果有limit就分頁
-        return isset($filter['limit']) ? $query->paginate($filter['limit']) : $query->get();
-    }
+    //     // 如果有limit就分頁
+    //     return isset($filter['limit']) ? $query->paginate($filter['limit']) : $query->get();
+    // }
 
     /**
      *
-     * create
+     * 新增取票資料
      *
      */
     public function create(array $data)

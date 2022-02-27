@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 
 class TicketAdd extends Command
 {
@@ -18,7 +19,7 @@ class TicketAdd extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = '將票卷依照數量補進redis當中 ex: php artisan ticket:add {amount}';
 
     /**
      * Create a new command instance.
@@ -31,20 +32,20 @@ class TicketAdd extends Command
     }
 
     /**
-     * Execute the console command.
-     *
+     * 將票卷依照數量補進redis當中
+     * @param int $amount 票卷數量
      * @return int
      */
     public function handle()
     {
-        //TODO:之後再來補 return message
+        //TODO:之後再來補 error exception
         $redis = app('redis');
         $amount = $this->argument('amount');
         for ($i=0;$i<$amount;$i++){
-            $tickets[$i] = '';
+            $tickets[$i] = Str::random('10');
         }
         $redis->lpush('ticket', ...$tickets);
-
+        print('票卷補貨成功' . "\n");
         return 0;
     }
 }

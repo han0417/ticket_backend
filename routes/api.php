@@ -9,6 +9,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::post('/login', 'AdminStoreAccountController@login');
         Route::post('/logout', 'AdminStoreAccountController@logout');
         Route::post('/accounts', 'AdminStoreAccountController@create');
+        Route::post('/leetcode/int-array', 'LeetcodeController@returnIntArray');
         //過jwt middleware
         Route::group(['middleware' => ['jwt']], function () {
             Route::post('/tickets', 'TicketController@create');
